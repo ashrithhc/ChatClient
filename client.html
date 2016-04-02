@@ -14,7 +14,16 @@
             $(document).ready(function(){
                 $('#sendButton').on('click', function(){
                     var msg = $('#message_input').val();
+                    $('#message_input').val('');
                     socketio.emit("message_to_server", { message : msg});
+                });
+
+                $('#message_input').keypress(function(e){
+                    var key = e.which;
+                    if(key == 13) {
+                        $('#sendButton').click();
+                        return false;
+                    }
                 });
             });
         </script>
