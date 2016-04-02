@@ -11,15 +11,17 @@
                 $('#chatlog').html("<hr/>" + data['message'] + $('#chatlog').html());
             });
 
-            function sendMessage() {
-                var msg = $('#message_input').val();
-                socketio.emit("message_to_server", { message : msg});
-            }
+            $(document).ready(function(){
+                $('#sendButton').on('click', function(){
+                    var msg = $('#message_input').val();
+                    socketio.emit("message_to_server", { message : msg});
+                });
+            });
         </script>
     </head>
     <body>
         <input type="text" id="message_input"/>
-        <button onclick="sendMessage()">send</button>
+        <button id="sendButton">send</button>
         <div id="chatlog"></div>
     </body>
 </html>
