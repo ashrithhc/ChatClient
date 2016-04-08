@@ -4,7 +4,8 @@ var http = require('http'),
     url = require('url'),
     validator = require('validator');
 
-var usernames = {};
+var usernames = {},
+    users_list = [];
 
 var app = http.createServer(function (request, response) {
     var pathname = url.parse(request.url).pathname;
@@ -36,7 +37,21 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('client_identity', function(data){
         var escaped_message = validator.escape(data['username']);
-        usernames[socket.id] = escaped_message;
+        if(users_list.indexOf(escaped_message) > -1){
+            socket.emit("usernameVerify", {message : false});
+        }
+        else {
+            users_list.push(escaped_message);
+            usernames[socket.id] = escaped_message;
+            socket.emit("usernameVerify", {message : true});
+        }
+    });
+
+    socket.on('disconnect', function(){
+        if (usernames[socket.id]){
+            io.sockets.emit("message_to_client", {message : usernames[socket.id] + ' IS DISCONNECTED'});
+            delete usernames[socket.id];
+        }
     });
 });
 
