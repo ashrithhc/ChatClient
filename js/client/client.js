@@ -1,5 +1,4 @@
 var socketio = io.connect("127.0.0.1:1337");
-var name = "nobody";
 
 socketio.on("message_to_client", function(data) {
     $('#chatlog').html($('#chatlog').html() + "<hr/>" + data['message']);
@@ -8,8 +7,9 @@ socketio.on("message_to_client", function(data) {
 $(document).ready(function(){
     $('#nameButton').on('click', function(){
         name = $('#nameInput').val();
+        $('.modal').css('display', 'none');
+        $('#container').show();
         socketio.emit("client_identity", {username : name});
-        $('#nameDiv').hide();
     });
 
     $('#sendButton').on('click', function(){
