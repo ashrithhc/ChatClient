@@ -5,18 +5,25 @@
         <link href="css/client.css" rel="stylesheet">
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+        <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
         <script src="js/client/client.js"></script>
     </head>
     <body>
-        <div id="my-modal" class="modal fade in">
+        <div id="usernameModal" class="modal fade in">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Username</h4>
                     </div>
                     <div class="modal-body">
-                        <input type="text" id="nameInput"/>
-                        <button type="button" id="nameButton" data-dismiss="modal">Done</button>
+                        <form id='nameForm'>
+                            <fieldset>
+                                <div class="fieldgroup">
+                                    <input type="text" id="nameInput" name="nameInput"/>
+                                    <button type="button" id="nameButton">Done</button>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
             </div> 

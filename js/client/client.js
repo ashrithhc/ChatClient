@@ -4,11 +4,16 @@ socketio.on("message_to_client", function(data) {
     $('#chatlog').html($('#chatlog').html() + "<hr/>" + data['message']);
 });
 
+socketio.on("usernameVerify", function(data){
+    if(data['message']){
+        $('.modal').css('display', 'none');
+        $('#container').show();
+    }
+});
+
 $(document).ready(function(){
     $('#nameButton').on('click', function(){
         name = $('#nameInput').val();
-        $('.modal').css('display', 'none');
-        $('#container').show();
         socketio.emit("client_identity", {username : name});
     });
 
@@ -18,6 +23,21 @@ $(document).ready(function(){
         socketio.emit("message_to_server", { message : msg});
         $('#messageInput').val('');
     });
+
+/*    $('#nameForm').validate({
+        rules:{
+            "nameInput": {
+                required: true,
+                regex: "^([a-zA-Z0-9-_])*$"
+            }
+        },
+        messages: {
+            nameInput:{
+                required: "Please provide a username",
+                regex: "Not more than one word"
+            }
+        }
+    });*/
 
     $('#nameInput').keypress(function(e){
         var key = e.which;
