@@ -4,8 +4,8 @@ var http = require('http'),
     url = require('url'),
     validator = require('validator');
 
-var usernames = {},
-    users_list = [];
+var usernames = {}, //Maps socket ID to username
+    users_list = []; //Keeps a list of all usernames
 
 var app = http.createServer(function (request, response) {
     var pathname = url.parse(request.url).pathname;
@@ -17,7 +17,7 @@ var app = http.createServer(function (request, response) {
         });
     }
     else if(pathname === '/favicon.ico'){
-        console.log("favicon died");
+        // Do Nothing
     }
     else {
         var script = fs.readFileSync("../../" + pathname.substring(1, pathname.length), "utf8");
@@ -50,6 +50,7 @@ io.sockets.on('connection', function(socket) {
     socket.on('disconnect', function(){
         if (usernames[socket.id]){
             io.sockets.emit("message_to_client", {message : usernames[socket.id] + ' IS DISCONNECTED'});
+            console.log(users_list.splice(users_list.indexOf(usernames[socket.id]), 1));
             delete usernames[socket.id];
         }
     });
