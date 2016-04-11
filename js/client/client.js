@@ -17,6 +17,15 @@ $(document).ready(function(){
         socketio.emit("client_identity", {username : name});
     });
 
+    $('input:radio[name=sendTo]').change(function(){
+        if( $('input:radio[name=sendTo]').val() == 'choose'){
+            $('#toWhomInput').removeAttr('disabled');
+        }
+        else {
+            $('#toWhomInput').prop('disabled', true);
+        }
+    });
+
     $('#sendButton').on('click', function(){
         var msg = $('#messageInput').val();
         var toVal = $('#toWhomInput').val();

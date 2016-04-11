@@ -31,9 +31,15 @@
         <div id="container">
             <div>
                 <br>
-                <div>
-                    Send To : <input type="text" id="toWhomInput"/>
+
+                <div class="radio radio-inline">
+                    <label><input type="radio" name="sendTo" value='choose'>Choose User</label>
+                    <label><input type="text" id="toWhomInput" disabled/></label>
                 </div>
+                <div class="radio radio-inline">
+                    <label><input type="radio" name="sendTo" value='all'>All</label>
+                </div>
+
                 <div>
                     Message : <input type="text" id="messageInput"/>
                     <button id="sendButton">send</button>
