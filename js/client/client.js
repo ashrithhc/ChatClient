@@ -19,9 +19,10 @@ $(document).ready(function(){
 
     $('#sendButton').on('click', function(){
         var msg = $('#messageInput').val();
-        $('#message_input').val('');
-        socketio.emit("message_to_server", { message : msg});
+        var toVal = $('#toWhomInput').val();
+        socketio.emit("message_to_server", { message : msg, toWhom : toVal});
         $('#messageInput').val('');
+        $('#toWhomInput').val('');
     });
 
 /*    $('#nameForm').validate({

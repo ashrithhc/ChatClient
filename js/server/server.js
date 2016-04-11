@@ -32,7 +32,11 @@ var io = require('socket.io').listen(app);
 io.sockets.on('connection', function(socket) {
     socket.on('message_to_server', function(data) {
     	var escaped_message = validator.escape(data['message']);
-        io.sockets.emit("message_to_client", {message : usernames[socket.id] + ': ' + escaped_message});
+        var toWhom = validator.escape(data['toWhom']);
+
+        if (toWhom == ''){
+            io.sockets.emit("message_to_client", {message : usernames[socket.id] + ': ' + escaped_message});
+        }
     });
 
     socket.on('client_identity', function(data){
