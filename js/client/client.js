@@ -25,6 +25,10 @@ socketio.on("userListChange", function(data){
     }
     else if(data['action'] == 'delete'){
         $('.contacts [value="'+data['username']+'"]').remove()
+        if(toWhom == data['username']){
+            toWhom = 'All';
+            $('.contacts [value="All"]').addClass('selected_contact');
+        }
     }
 });
 
