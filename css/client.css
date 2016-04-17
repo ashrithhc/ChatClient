@@ -7,6 +7,59 @@ body{
 	background-color: #c2d6d6;
 }
 
-#container{
+.modal-body{
+	text-align: center;
+}
+
+.container{
 	display: none;
+}
+
+.chat_container{
+	border: 1px solid #000;
+}
+
+.contact_list{
+	border-right: 2px solid #ACB9CD;
+	min-height: 400px;
+	background-color: #EAEDF2;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.contact_list ul{
+	padding-left: 0px;
+}
+
+.contacts li{
+	list-style: none;
+	padding: 0px 10px;
+	border: 1px solid #FFF;
+}
+
+.contact_name:hover{
+	cursor: pointer;
+	background-color: lightblue;
+}
+
+.chat_content{
+	border-bottom: 2px solid #ACB9CD;
+	min-height: 300px;
+}
+
+.chat_entry{
+	min-height: 100px;
+	border-bottom: 1px solid #ACB9CD;
+}
+
+.selected_contact{
+	background-color: lightgreen;
+}
+
+textarea{
+	width: 100%;
+}
+
+#sendButton{
+	width: 100%;
 }

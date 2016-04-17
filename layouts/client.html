@@ -20,7 +20,7 @@
                             <fieldset>
                                 <div class="fieldgroup">
                                     <input type="text" id="nameInput" name="nameInput"/>
-                                    <button type="button" id="nameButton">Done</button>
+                                    <button type="button" id="nameButton" disabled>Done</button>
                                 </div>
                             </fieldset>
                         </form>
@@ -28,24 +28,28 @@
                 </div>
             </div> 
         </div>
-        <div id="container">
-            <div>
-                <br>
-
-                <div class="radio radio-inline">
-                    <label><input type="radio" name="sendTo" value='choose'>Choose User</label>
-                    <label><input type="text" id="toWhomInput" disabled/></label>
+        <div class="breathingSpace">
+            <br/>
+        </div>
+        <div class="container chat_container">
+            <div class="row">
+                <div class="col-sm-3 contact_list">
+                    <ul class="contacts">
+                        <li class="contact_name selected_contact" value="All">
+                            <i class="glyphicon glyphicon-user"> </i> All
+                        </li>
+                    </ul>
                 </div>
-                <div class="radio radio-inline">
-                    <label><input type="radio" name="sendTo" value='all'>All</label>
-                </div>
-
-                <div>
-                    Message : <input type="text" id="messageInput"/>
-                    <button id="sendButton">send</button>
+                <div class="col-sm-9 chat_details">
+                    <div class="chat_content" id="chatlog"></div>
+                    <div class="chat_entry">
+                        <div id="messageSend col-sm-12">
+                            <div class="col-sm-10"><textarea id="messageInput"></textarea></div>
+                            <div class="col-sm-2"><button id="sendButton">Send</button></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id='chatlog'></div>
         </div>
     </body>
 </html>
