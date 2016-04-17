@@ -36,11 +36,11 @@ io.sockets.on('connection', function(socket) {
     	var escaped_message = validator.escape(data['message']);
         var toWhom = validator.escape(data['toWhom']);
         if (toWhom == 'All'){
-            io.sockets.emit("message_to_client", {toWhom: toWhom, username: usernames[socket.id], message: escaped_message});
+            io.sockets.emit("message_to_client", {toWhom: toWhom, fromWhom: usernames[socket.id], message: escaped_message});
         }
         else {
-            if(socketids[toWhom] != socket.id) socket.emit("message_to_client", {toWhom: toWhom, username: usernames[socket.id], message: escaped_message});
-            io.to(socketids[toWhom]).emit("message_to_client", {toWhom: toWhom, username: usernames[socket.id], message: escaped_message});
+            if(socketids[toWhom] != socket.id) socket.emit("message_to_client", {toWhom: toWhom, fromWhom: usernames[socket.id], message: escaped_message});
+            io.to(socketids[toWhom]).emit("message_to_client", {toWhom: toWhom, fromWhom: usernames[socket.id], message: escaped_message});
         }
     });
 
@@ -53,7 +53,7 @@ io.sockets.on('connection', function(socket) {
             users_list.push(escaped_message);
             usernames[socket.id] = escaped_message;
             socketids[escaped_message] = socket.id;
-            socket.emit("usernameVerify", {message: true});
+            socket.emit("usernameVerify", {username: escaped_message, message: true});
             socket.emit("userListInit", {userList: users_list});
             socket.broadcast.emit("userListChange", {username: usernames[socket.id], action: 'add'});
         }

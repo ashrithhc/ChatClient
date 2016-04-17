@@ -1,4 +1,5 @@
 var socketio = io.connect("127.0.0.1:1337");
+var whoAmI = '';
 var toWhom = 'All'; //Stores the selected contact to send messages to.
 
 socketio.on("userListInit", function(data){
@@ -11,13 +12,26 @@ socketio.on("userListInit", function(data){
 });
 
 socketio.on("message_to_client", function(data) {
-    $('.chatContent .'+data['toWhom']).html($('.chatContent .'+data['toWhom']).html() + "<hr/>" + "<p><span class='unameChat'>"+data['username']+": "+"</span>" + "<span>"+data['message']+"</span></p>");
+    if (data['fromWhom'] == whoAmI){
+        var msgClass = 'messageRight';
+        var msgDiv = data['toWhom'];
+    }
+    else if (data['toWhom'] == 'All'){
+        var msgClass = 'messageLeft';
+        var msgDiv = data['toWhom'];
+    }    
+    else {
+        var msgClass = 'messageLeft';
+        var msgDiv = data['fromWhom'];
+    }
+    $('.chatContent .'+msgDiv).html($('.chatContent .'+msgDiv).html() + "<hr/>" + "<p class='"+msgClass+"'><span class='unameChat'>"+data['fromWhom']+": "+"</span>" + "<span>"+data['message']+"</span></p>");
 });
 
 socketio.on("usernameVerify", function(data){
     if(data['message']){
         $('.modal').css('display', 'none');
         $('.container').show();
+        whoAmI = data['username'];
     }
 });
 

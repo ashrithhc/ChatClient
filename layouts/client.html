@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
         <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
@@ -38,6 +39,7 @@
         <div class="container chat_container">
             <div class="row">
                 <div class="col-sm-3 contact_list">
+                    <h2 class="headerFont">Connected Users</h2>
                     <ul class="contacts">
                         <li class="contact_name selected_contact" value="All">
                             <i class="glyphicon glyphicon-user"> </i> All
@@ -45,8 +47,11 @@
                     </ul>
                 </div>
                 <div class="col-sm-9 chat_details">
-                    <div class="chatContent">
-                        <div class="All selected_content"></div>
+                    <div>
+                        <div class="chatWith headerFont"></div>
+                        <div class="chatContent">
+                            <div class="All selected_content"></div>
+                        </div>
                     </div>
                     <div class="chat_entry">
                         <div id="messageSend col-sm-12">

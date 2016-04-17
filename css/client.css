@@ -3,6 +3,10 @@ body{
 	font-family: 'Architects Daughter', handwriting;
 }
 
+.headerFont{
+	font-family: 'Bitter', serif;
+}
+
 #chatlog{
 	font-family: 'Coming Soon', handwriting;
 }
@@ -81,4 +85,12 @@ textarea{
 
 #sendButton, #clearButton{
 	width: 100%;
+}
+
+.messageLeft{
+	text-align: left;
+}
+
+.messageRight{
+	text-align: right;
 }
