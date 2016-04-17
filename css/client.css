@@ -49,7 +49,7 @@ body{
 	background-color: lightblue;
 }
 
-.chat_content{
+.chatContent{
 	border-bottom: 2px solid #ACB9CD;
 	min-height: 300px;
 }
@@ -61,6 +61,14 @@ body{
 
 .selected_contact{
 	background-color: lightgreen;
+}
+
+.hide_content{
+	display: none;
+}
+
+.selected_content{
+	
 }
 
 textarea{
