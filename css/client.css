@@ -68,13 +68,13 @@ body{
 }
 
 .selected_content{
-	
+
 }
 
 textarea{
 	width: 100%;
 }
 
-#sendButton{
+#sendButton, #clearButton{
 	width: 100%;
 }

@@ -59,6 +59,10 @@ $(document).ready(function(){
         $('#toWhomInput').val('');
     });
 
+    $('#clearButton').on('click', function(){
+        $('.chatContent .'+toWhom).empty();
+    });
+
     $('#nameInput').keyup(function(e){
         var key = e.which;
         if($(this).val() != 0)
