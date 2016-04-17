@@ -7,6 +7,10 @@ body{
 	font-family: 'Coming Soon', handwriting;
 }
 
+.unameChat{
+	font-family: 'Righteous', display;
+}
+
 .modal{
 	display: block;
 	background-color: #c2d6d6;

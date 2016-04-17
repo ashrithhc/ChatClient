@@ -36,11 +36,11 @@ io.sockets.on('connection', function(socket) {
     	var escaped_message = validator.escape(data['message']);
         var toWhom = validator.escape(data['toWhom']);
         if (toWhom == 'All'){
-            io.sockets.emit("message_to_client", {toWhom: 'All', message: usernames[socket.id] + ': ' + escaped_message});
+            io.sockets.emit("message_to_client", {toWhom: toWhom, username: usernames[socket.id], message: escaped_message});
         }
         else {
-            if(socketids[toWhom] != socket.id) socket.emit("message_to_client", {toWhom: toWhom, message: usernames[socket.id] + ': ' + escaped_message});
-            io.to(socketids[toWhom]).emit("message_to_client", {toWhom: toWhom, message: usernames[socket.id] + ': ' + escaped_message});
+            if(socketids[toWhom] != socket.id) socket.emit("message_to_client", {toWhom: toWhom, username: usernames[socket.id], message: escaped_message});
+            io.to(socketids[toWhom]).emit("message_to_client", {toWhom: toWhom, username: usernames[socket.id], message: escaped_message});
         }
     });
 

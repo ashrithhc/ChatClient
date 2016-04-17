@@ -11,7 +11,7 @@ socketio.on("userListInit", function(data){
 });
 
 socketio.on("message_to_client", function(data) {
-    $('.chatContent .'+data['toWhom']).html($('.chatContent .'+data['toWhom']).html() + "<hr/>" + data['message']);
+    $('.chatContent .'+data['toWhom']).html($('.chatContent .'+data['toWhom']).html() + "<hr/>" + "<p><span class='unameChat'>"+data['username']+": "+"</span>" + "<span>"+data['message']+"</span></p>");
 });
 
 socketio.on("usernameVerify", function(data){
