@@ -1,5 +1,10 @@
 body{
-	background-color: #c6d9ec;
+	background-color: #001a00;
+	font-family: 'Architects Daughter', handwriting;
+}
+
+#chatlog{
+	font-family: 'Coming Soon', handwriting;
 }
 
 .modal{
@@ -13,6 +18,7 @@ body{
 
 .container{
 	display: none;
+	background-color: #c6d9ec;
 }
 
 .chat_container{
@@ -32,6 +38,7 @@ body{
 }
 
 .contacts li{
+	font-family: 'Bitter', handwriting;
 	list-style: none;
 	padding: 0px 10px;
 	border: 1px solid #FFF;

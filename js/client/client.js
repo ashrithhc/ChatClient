@@ -1,5 +1,5 @@
 var socketio = io.connect("127.0.0.1:1337");
-var toWhom = 'All';
+var toWhom = 'All'; //Stores the selected contact to send messages to.
 
 socketio.on("userListInit", function(data){
     $('.contacts').empty().append('<li class="contact_name selected_contact" value="All"><i class="glyphicon glyphicon-user"> </i> All</li>');
