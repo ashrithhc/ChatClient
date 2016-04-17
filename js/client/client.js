@@ -24,7 +24,7 @@ socketio.on("userListChange", function(data){
         $('.contacts').append('<li class="contact_name" value="'+data['username']+'"><i class="glyphicon glyphicon-user"></i> '+data['username']+'</li>');
     }
     else if(data['action'] == 'delete'){
-        //$('.contacts').append('<li class="contact_name" value="'+data['username']+'"><i class="glyphicon glyphicon-user"></i>'+data['username']+'</li>');
+        $('.contacts [value="'+data['username']+'"]').remove()
     }
 });
 
