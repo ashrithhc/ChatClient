@@ -7,6 +7,12 @@ body{
 	font-family: 'Bitter', serif;
 }
 
+.unameFont{
+	font-family: 'Bitter', serif;
+	font-weight: bold;
+	font-size: 18px;
+}
+
 #chatlog{
 	font-family: 'Coming Soon', handwriting;
 }
@@ -93,4 +99,13 @@ textarea{
 
 .messageRight{
 	text-align: right;
+}
+
+.myUsername{
+	text-align: center;
+	height: 30px;
+}
+
+.serverDownMessage{
+	color: #f2f2f2;
 }

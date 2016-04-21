@@ -2,16 +2,22 @@ var socketio = io.connect("127.0.0.1:1337");
 var whoAmI = '';
 var toWhom = 'All'; //Stores the selected contact to send messages to.
 
+socketio.on('disconnect', function(){
+    $('body').empty().append('<p class="serverDownMessage">Oops! Server is Resting Peacefully!</p>')
+});
+
 socketio.on("userListInit", function(data){
+    $('.myUsername').append('<p class="pull-right">'+whoAmI+'</p>');
     $('.contacts').empty().append('<li class="contact_name selected_contact" value="All"><i class="glyphicon glyphicon-user"> </i> All</li>');
     $('.chatContent').empty().append('<div class="All selected_content contact_content"></div>');
     $.each(data['userList'], function(index, uname){
+        if(uname == whoAmI) return true;
         $('.contacts').append('<li class="contact_name" value="'+uname+'"><i class="glyphicon glyphicon-user"></i> '+uname+'</li>');
         $('.chatContent').append('<div class="'+uname+' hide_content contact_content"></div>');
     });
 });
 
-socketio.on("message_to_client", function(data) {
+socketio.on("message_to_client", function(data){
     if (data['fromWhom'] == whoAmI){
         var msgClass = 'messageRight';
         var msgDiv = data['toWhom'];
