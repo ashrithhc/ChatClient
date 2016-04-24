@@ -109,3 +109,7 @@ textarea{
 .serverDownMessage{
 	color: #f2f2f2;
 }
+
+.notify{
+	display: none;
+}
