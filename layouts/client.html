@@ -25,7 +25,7 @@
                         <form id='nameForm'>
                             <fieldset>
                                 <div class="fieldgroup">
-                                    <input type="text" id="nameInput" name="nameInput"/>
+                                    <input type="text" id="nameInput" name="nameInput" autofocus/>
                                     <button type="button" id="nameButton" disabled>Done</button>
                                 </div>
                             </fieldset>
@@ -37,7 +37,33 @@
         <div class="breathingSpace">
             <br/>
         </div>
-        <div class="container chat_container">
+
+        <div class="container chat_container col-md-12">
+            <div class="col-md-3 contact_list">
+                <h2 class="headerFont">Connected Users</h2>
+                <ul class="contacts">
+                    <li class="contact_name selected_contact" value="All">
+                        <i class="glyphicon glyphicon-user"> </i> All
+                    </li>
+                </ul>
+            </div>
+            <div class="row col-md-9 chat_details">
+                <div class="myUsername unameFont col-md-12"></div>
+                <div class="chatContent col-md-12">
+                    <div class="All selected_content"></div>
+                </div>
+
+                <div class="chat_entry col-md-12" id="messageSend">
+                    <div class="col-sm-10" id="messageInput" contenteditable></div>
+                    <div class="col-sm-2">
+                        <button id="sendButton" class="btn btn-primary">Send</button>
+                        <button id="clearButton" class="btn btn-danger">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--         <div class="container chat_container">
             <div class="row">
                 <div class="col-sm-3 contact_list">
                     <h2 class="headerFont">Connected Users</h2>
@@ -65,6 +91,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
     </body>
 </html>

@@ -2,6 +2,9 @@ $(document).ready(function(){
     $('#nameButton').on('click', function(){
         name = $('#nameInput').val();
         socketio.emit("client_identity", {username : name});
+        setTimeout(function(){
+            $('#messageInput').focus();
+        }, 0);
     });
 
     $('body').on('click', '.contact_name', function(){
@@ -14,10 +17,10 @@ $(document).ready(function(){
     });
 
     $('#sendButton').on('click', function(){
-        var msg = $('#messageInput').val();
+        var msg = $('#messageInput').text();
         var toVal = toWhom;
         socketio.emit("message_to_server", { message : msg, toWhom : toVal});
-        $('#messageInput').val('');
+        $('#messageInput').text('');
         $('#toWhomInput').val('');
     });
 
