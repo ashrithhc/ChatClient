@@ -1,6 +1,7 @@
 var socketio = io.connect("127.0.0.1:1337");
 var whoAmI = '';
 var toWhom = 'All'; //Stores the selected contact to send messages to.
+var maxScrollValue = 0;
 
 socketio.on('disconnect', function(){
     $('body').empty().append('<p class="serverDownMessage">Oops! Server is Resting Peacefully!</p>')
@@ -19,17 +20,14 @@ socketio.on("userListInit", function(data){
 
 socketio.on("message_to_client", function(data){
     if (data['fromWhom'] == whoAmI){
-        //The message was sent by this client
-        var msgClass = 'messageRight';
+        var msgClass = 'messageRight LastMessage';
         var msgDiv = data['toWhom'];
     }
     else {
         if (data['toWhom'] == 'All'){
-            var msgClass = 'messageLeft';
             var msgDiv = data['toWhom'];
         }
         else {
-            var msgClass = 'messageLeft';
             var msgDiv = data['fromWhom'];
         }
         $('.contact_name').each(function(){
@@ -37,8 +35,14 @@ socketio.on("message_to_client", function(data){
                 $(this).children('.notify').show();
             }
         });
+        var msgClass = 'messageLeft LastMessage';
     }
+    $('.chatContent .'+msgDiv+' p').removeClass('LastMessage');
     $('.chatContent .'+msgDiv).html($('.chatContent .'+msgDiv).html() + "<hr/>" + "<p class='"+msgClass+"'><span class='unameChat'>"+data['fromWhom']+": "+"</span>" + "<span>"+data['message']+"</span></p>");
+    if($('.chatContent .'+msgDiv).height() > maxScrollValue){
+        maxScrollValue = $('.chatContent .'+msgDiv).height();
+    }
+    $('.chatContent').scrollTop($('.chatContent').scrollTop() + maxScrollValue);
 });
 
 socketio.on("usernameVerify", function(data){

@@ -14,7 +14,11 @@ var app = http.createServer(function (request, response) {
         });
     }
     else if(pathname === '/favicon.ico'){
-        // Do Nothing
+        fs.readFile("../../img/happyProgrammer.jpg", "utf-8", function(error, data){
+            response.writeHead(200, {'Content-Type': 'image/jpeg'});
+            response.write(data);
+            response.end();
+        });
     }
     else {
         var script = fs.readFileSync("../../" + pathname.substring(1, pathname.length), "utf8");

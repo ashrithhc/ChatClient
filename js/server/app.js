@@ -1,12 +1,12 @@
 var validator = require('validator');
 
-var usernames = {}, //Maps socket ID to username
-    socketids = {}, //Maps username to Socker ID
-    users_list = []; //Keeps a list of all usernames
-
 module.exports = {
 
     onServerReady: function(io){
+        var usernames = {}, //Maps socket ID to username
+            socketids = {}, //Maps username to Socker ID
+            users_list = []; //Keeps a list of all usernames
+
         io.sockets.on('connection', function(socket) {
             socket.on('message_to_server', function(data) {
                 var escaped_message = validator.escape(data['message']);

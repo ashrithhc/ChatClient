@@ -66,6 +66,8 @@ body{
 .chatContent{
 	border-bottom: 2px solid #ACB9CD;
 	min-height: 300px;
+	overflow-y: auto;
+	height: 300px;
 }
 
 .chat_entry{

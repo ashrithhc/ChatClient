@@ -10,7 +10,7 @@ $(document).ready(function(){
         $('.contact_name').removeClass('selected_contact');
         $(this).addClass('selected_contact');
         $('.contact_content').addClass('hide_content').removeClass('selected_content');
-        $('.chatContent .'+toWhom).addClass('selected_content').removeClass('hide_content').show().scrollbar();
+        $('.chatContent .'+toWhom).addClass('selected_content').removeClass('hide_content').show();
     });
 
     $('#sendButton').on('click', function(){
