@@ -3,6 +3,8 @@
     <head>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/client.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/modal-styles.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
@@ -12,9 +14,12 @@
         <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
         <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
         <script src="js/client/client.js"></script>
-        <script src="js/client/client-helper.js"></script>
+        <script src="js/client/client-userlist.js"></script>
+        <script src="js/client/client-login.js"></script>
+        <script src="js/client/client-message.js"></script>
     </head>
     <body>
+        <!-- User Login -->
         <div id="usernameModal" class="modal fade in">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -22,76 +27,58 @@
                         <h4 class="modal-title">Username</h4>
                     </div>
                     <div class="modal-body">
-                        <form id='nameForm'>
-                            <fieldset>
-                                <div class="fieldgroup">
-                                    <input type="text" id="nameInput" name="nameInput" autofocus/>
-                                    <button type="button" id="nameButton" disabled>Done</button>
-                                </div>
-                            </fieldset>
-                        </form>
+                        <div class="row">
+                            <form id='nameForm'>
+                                <fieldset>
+                                    <div class="fieldgroup">
+                                        <input type="text" id="nameInput" name="nameInput" autofocus/>
+                                        <button type="button" id="nameButton" disabled><span class="glyphicon glyphicon-log-in"></span> Login</button>
+                                        <!-- <a href="#" id="nameButton" disabled='disabled'><span class="glyphicon glyphicon-log-in"></span> Login</a> -->
+                                    </div>
+                                </fieldset>
+                            </form>
+                            <div id="errorMessageLogin"></div>
+                        </div>
                     </div>
                 </div>
             </div> 
         </div>
-        <div class="breathingSpace">
-            <br/>
-        </div>
+        <!-- User Login -->
 
-        <div class="container chat_container col-md-12">
-            <div class="col-md-3 contact_list">
-                <h2 class="headerFont">Connected Users</h2>
-                <ul class="contacts">
-                    <li class="contact_name selected_contact" value="All">
-                        <i class="glyphicon glyphicon-user"> </i> All
-                    </li>
-                </ul>
-            </div>
-            <div class="row col-md-9 chat_details">
-                <div class="myUsername unameFont col-md-12"></div>
-                <div class="chatContent col-md-12">
-                    <div class="All selected_content"></div>
-                </div>
-
-                <div class="chat_entry col-md-12" id="messageSend">
-                    <div class="col-sm-10" id="messageInput" contenteditable></div>
-                    <div class="col-sm-2">
-                        <button id="sendButton" class="btn btn-primary">Send</button>
-                        <button id="clearButton" class="btn btn-danger">Clear</button>
+        <div class="main-container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand">Ashrith H C</a>
                     </div>
                 </div>
-            </div>
-        </div>
-
-<!--         <div class="container chat_container">
-            <div class="row">
-                <div class="col-sm-3 contact_list">
-                    <h2 class="headerFont">Connected Users</h2>
-                    <ul class="contacts">
-                        <li class="contact_name selected_contact" value="All">
-                            <i class="glyphicon glyphicon-user"> </i> All
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-9 chat_details">
-                    <div>
-                        <div class="myUsername unameFont"></div>
+            </nav>
+            <div class="container chat_container">
+                <div class="row">
+                    <div class="col-md-3 contact_list">
+                        <h2 class="headerFont">Connected Users</h2>
+                        <ul class="contacts">
+                            <li class="contact_name selected_contact" value="All">
+                                <i class="glyphicon glyphicon-user"> </i> All
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-9 chat_details">
+                        <div class="myUsername"></div>
                         <div class="chatContent">
                             <div class="All selected_content"></div>
                         </div>
-                    </div>
-                    <div class="chat_entry">
-                        <div id="messageSend col-sm-12">
-                            <div class="col-sm-10"><textarea id="messageInput"></textarea></div>
-                            <div class="col-sm-2">
-                                <button id="sendButton" class="btn btn-primary">Send</button>
-                                <button id="clearButton" class="btn btn-danger">Clear</button>
+
+                        <div class="chat_entry" id="messageSend">
+                            <div class="col-sm-11" id="messageInput" contenteditable></div>
+                            <div class="col-sm-1">
+                                <a class="btn btn-success" id="sendButton" role="button"><i class="glyphicon glyphicon-ok"> </i></a>
+                                <a class="btn btn-danger" id="clearButton" role="button"><i class="glyphicon glyphicon-repeat"> </i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-
+        </div>
     </body>
 </html>

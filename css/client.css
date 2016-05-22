@@ -1,78 +1,9 @@
-body{
-	background-color: #001a00;
-	font-family: 'Architects Daughter', handwriting;
-}
-
-.headerFont{
-	font-family: 'Bitter', serif;
-}
-
-.unameFont{
-	font-family: 'Bitter', serif;
-	font-weight: bold;
-	font-size: 18px;
-}
-
 #chatlog{
 	font-family: 'Coming Soon', handwriting;
 }
 
 .unameChat{
 	font-family: 'Righteous', display;
-}
-
-.modal{
-	display: block;
-	background-color: #c2d6d6;
-}
-
-.modal-body{
-	text-align: center;
-}
-
-.container{
-	display: none;
-	background-color: #c6d9ec;
-}
-
-.chat_container{
-	border: 1px solid #000;
-}
-
-.contact_list{
-	border-right: 2px solid #ACB9CD;
-	min-height: 400px;
-	background-color: #EAEDF2;
-	padding-right: 0px;
-	padding-left: 0px;
-}
-
-.contact_list ul{
-	padding-left: 0px;
-}
-
-.contacts li{
-	font-family: 'Bitter', handwriting;
-	list-style: none;
-	padding: 0px 10px;
-	border: 1px solid #FFF;
-}
-
-.contact_name:hover{
-	cursor: pointer;
-	background-color: lightblue;
-}
-
-.chatContent{
-	border-bottom: 2px solid #ACB9CD;
-	min-height: 300px;
-	overflow-y: auto;
-	height: 300px;
-}
-
-.chat_entry{
-	min-height: 100px;
-	border-bottom: 1px solid #ACB9CD;
 }
 
 .selected_contact{
@@ -83,18 +14,6 @@ body{
 	display: none;
 }
 
-.selected_content{
-
-}
-
-textarea{
-	width: 100%;
-}
-
-#sendButton, #clearButton{
-	width: 100%;
-}
-
 .messageLeft{
 	text-align: left;
 }
@@ -103,15 +22,18 @@ textarea{
 	text-align: right;
 }
 
-.myUsername{
+.notify{
+	display: none;
+}
+
+.errorMessage{
+	color: red;
 	text-align: center;
-	height: 30px;
+	font-weight: bold;
 }
 
 .serverDownMessage{
 	color: #f2f2f2;
-}
-
-.notify{
-	display: none;
+	padding-left: 40%;
+	padding-top: 20%;
 }

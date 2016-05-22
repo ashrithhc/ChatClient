@@ -1,0 +1,79 @@
+body{
+	background-color: #001a00;
+	font-family: 'Architects Daughter', handwriting;
+}
+
+.main-container{
+	display: none;
+}
+
+.chat_container{
+	background-color: #c6d9ec;
+	border: 1px solid #000;
+	min-width: 700px;
+}
+
+.contact_list{
+	border-right: 2px solid #ACB9CD;
+	min-height: 500px;
+	background-color: #EAEDF2;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.contact_list ul{
+	padding-left: 0px;
+}
+
+.headerFont{
+	font-family: 'Bitter', serif;
+	text-align: center;
+}
+
+.contacts li{
+	font-family: 'Bitter', handwriting;
+	list-style: none;
+	padding: 0px 10px;
+	border: 1px solid #FFF;
+}
+
+.contact_name:hover{
+	cursor: pointer;
+	background-color: lightblue;
+}
+
+.chat_details{
+	min-height: 500px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.myUsername{
+	text-align: center;
+	height: 30px;
+	width: 100%;
+	color: #f2f2f2;
+	background-color: #005580;
+	font-family: 'Bitter', serif;
+	font-size: 18px;
+}
+
+.chatContent{
+	min-height: 400px;
+	overflow-y: auto;
+	height: 400px;
+}
+
+.chat_entry{
+	min-height: 70px;
+	border-bottom: 1px solid #ACB9CD;
+}
+
+#messageInput{
+	height: 70px;
+	background-color: white;
+}
+
+#sendButton, #clearButton{
+	width: 100%;
+}

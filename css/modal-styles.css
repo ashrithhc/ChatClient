@@ -1,0 +1,8 @@
+.modal{
+	display: block;
+	background-color: #c2d6d6;
+}
+
+.modal-body{
+	text-align: center;
+}
